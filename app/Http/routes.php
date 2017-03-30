@@ -28,3 +28,9 @@ Route::resource('users', 'UsersController');
 Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store')->name('login');
 Route::delete('logout', 'SessionsController@destroy')->name('logout');
+
+// Password reset
+Route::get('/password/email', 'Auth\PasswordController@getEmail')->name('password.reset');
+Route::post('/password/email', 'Auth\PasswordController@postEmail')->name('password.reset');
+Route::get('/password/reset/{token}', 'Auth\PasswordController@getReset')->name('password.edit');
+Route::post('/password/reset', 'Auth\PasswordController@postReset')->name('password.update');

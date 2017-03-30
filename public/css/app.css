@@ -4344,13 +4344,13 @@ a.thumbnail.active {
   .alert-success .alert-link {
     color: #2b542c; }
 
-.alert-info {
+.alert-info, .alert-status {
   background-color: #d9edf7;
   border-color: #bce8f1;
   color: #31708f; }
-  .alert-info hr {
+  .alert-info hr, .alert-status hr {
     border-top-color: #a6e1ec; }
-  .alert-info .alert-link {
+  .alert-info .alert-link, .alert-status .alert-link {
     color: #245269; }
 
 .alert-warning {
@@ -5842,6 +5842,11 @@ input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px; }
+
+.checkbox {
+  padding-left: 20px; }
+  .checkbox input {
+    width: 20px; }
 
 input {
   height: auto !important; }
