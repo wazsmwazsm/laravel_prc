@@ -20,6 +20,7 @@ Route::get('/help', 'StaticPagesController@help')->name('help');
 Route::get('/about', 'StaticPagesController@about')->name('about');
 
 Route::get('/signup', 'UsersController@create')->name('signup');
+Route::get('/signup/confirm/{token}', 'UsersController@confirmEmail')->name('confirm_email');
 
 // RESTFul route
 Route::resource('users', 'UsersController');
