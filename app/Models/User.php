@@ -50,4 +50,8 @@ class User extends Model implements AuthenticatableContract,
         });
     }
 
+    public function statuses()
+    {
+       return $this->hasMany(Status::class);
+    }
 }

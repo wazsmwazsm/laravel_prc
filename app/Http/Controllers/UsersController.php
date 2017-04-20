@@ -38,7 +38,13 @@ class UsersController extends Controller
 
     public function show($id) {
       $user = User::findOrFail($id);
-      return view('users.show', compact('user'));
+
+      // 获取微博状态
+      $statuses = $user->statuses()
+          ->orderBy('created_at', 'desc')
+          ->paginate(30);
+
+      return view('users.show', compact('user', 'statuses'));
     }
 
     public function store(Request $request) {
