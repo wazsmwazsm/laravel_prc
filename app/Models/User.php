@@ -52,6 +52,16 @@ class User extends Model implements AuthenticatableContract,
 
     public function statuses()
     {
+       // 一对多自动使用类的名称加 id 的下划线命名作为关联字段
+       // 这里自动使用 user_id 作为关联 Status Eloquent 对象的属性，和 user 对象的 id 相匹配
+       // 第二个参数可选 Status 对象的关联值，第三个参数可选 user 对象的关联值(不使用 ID)
        return $this->hasMany(Status::class);
+    }
+
+    // 取出当前用户的所有微博
+    public function feed()
+    {
+      return $this->statuses()
+             ->orderBy('created_at', 'desc');
     }
 }
